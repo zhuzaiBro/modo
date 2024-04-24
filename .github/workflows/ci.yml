@@ -1,0 +1,12 @@
+name: Trigger Jenkins Job
+on: [push]  # 可以触发 workflow 的事件
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Jenkins
+        run: |
+          curl -X POST http://38.6.221.84:8080/job/zhu%20jie/buildWithParameters?token=111b19eef22e747c1d40b264ef4e4eeabb
+          # 替换 http://jenkins-server 为 Jenkins 服务器的地址
+          # 替换 job-name 为 Jenkins 中的作业名称
+          # 替换 your-token 为 Jenkins 中生成的 Token
