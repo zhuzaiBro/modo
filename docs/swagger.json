@@ -1,0 +1,1365 @@
+{
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "swagger": "2.0",
+    "info": {
+        "description": "http server api docs",
+        "title": "cyy api docs",
+        "contact": {},
+        "version": "2.0"
+    },
+    "host": "localhost:8080",
+    "paths": {
+        "/api/v1/cyymallUser": {
+            "post": {
+                "description": "submit information to create cyymallUser",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "cyymallUser"
+                ],
+                "summary": "create cyymallUser",
+                "parameters": [
+                    {
+                        "description": "cyymallUser information",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/types.CreateCyymallUserRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/types.CreateCyymallUserRespond"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/cyymallUser/condition": {
+            "post": {
+                "description": "get cyymallUser by condition",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "cyymallUser"
+                ],
+                "summary": "get cyymallUser by condition",
+                "parameters": [
+                    {
+                        "description": "query condition",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/types.Conditions"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/types.GetCyymallUserByConditionRespond"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/cyymallUser/delete/ids": {
+            "post": {
+                "description": "delete cyymallUsers by batch id",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "cyymallUser"
+                ],
+                "summary": "delete cyymallUsers",
+                "parameters": [
+                    {
+                        "description": "id array",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/types.DeleteCyymallUsersByIDsRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/types.DeleteCyymallUsersByIDsRespond"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/cyymallUser/list": {
+            "get": {
+                "description": "list of cyymallUsers by last id and limit",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "cyymallUser"
+                ],
+                "summary": "list of cyymallUsers by last id and limit",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "default": 0,
+                        "description": "last id, default is MaxInt32",
+                        "name": "lastID",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "integer",
+                        "default": 10,
+                        "description": "size in each page",
+                        "name": "limit",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "default": "-id",
+                        "description": "sort by column name of table, and the ",
+                        "name": "sort",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/types.ListCyymallUsersRespond"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "description": "list of cyymallUsers by paging and conditions",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "cyymallUser"
+                ],
+                "summary": "list of cyymallUsers by query parameters",
+                "parameters": [
+                    {
+                        "description": "query parameters",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/types.Params"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/types.ListCyymallUsersRespond"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/cyymallUser/list/ids": {
+            "post": {
+                "description": "list of cyymallUsers by batch id",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "cyymallUser"
+                ],
+                "summary": "list of cyymallUsers by batch id",
+                "parameters": [
+                    {
+                        "description": "id array",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/types.ListCyymallUsersByIDsRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/types.ListCyymallUsersByIDsRespond"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/cyymallUser/{id}": {
+            "get": {
+                "description": "get cyymallUser detail by id",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "cyymallUser"
+                ],
+                "summary": "get cyymallUser detail",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/types.GetCyymallUserByIDRespond"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "description": "update cyymallUser information by id",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "cyymallUser"
+                ],
+                "summary": "update cyymallUser",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "description": "cyymallUser information",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/types.UpdateCyymallUserByIDRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/types.UpdateCyymallUserByIDRespond"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "description": "delete cyymallUser by id",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "cyymallUser"
+                ],
+                "summary": "delete cyymallUser",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/types.DeleteCyymallUserByIDRespond"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "types.Column": {
+            "type": "object",
+            "properties": {
+                "exp": {
+                    "description": "expressions, which default to = when the value is null, have =, !=, \u003e, \u003e=, \u003c, \u003c=, like",
+                    "type": "string"
+                },
+                "logic": {
+                    "description": "logical type, defaults to and when value is null, only \u0026(and), ||(or)",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "column name",
+                    "type": "string"
+                },
+                "value": {
+                    "description": "column value"
+                }
+            }
+        },
+        "types.Conditions": {
+            "type": "object",
+            "properties": {
+                "columns": {
+                    "description": "columns info",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/types.Column"
+                    }
+                }
+            }
+        },
+        "types.CreateCyymallUserRequest": {
+            "type": "object",
+            "properties": {
+                "accessToken": {
+                    "type": "string"
+                },
+                "addtime": {
+                    "type": "integer"
+                },
+                "appcid": {
+                    "type": "string"
+                },
+                "authKey": {
+                    "type": "string"
+                },
+                "avatarUrl": {
+                    "type": "string"
+                },
+                "balancePassword": {
+                    "description": "余额支付密码",
+                    "type": "string"
+                },
+                "binding": {
+                    "description": "授权手机号",
+                    "type": "string"
+                },
+                "birthDate": {
+                    "description": "出生日期",
+                    "type": "string"
+                },
+                "blacklist": {
+                    "description": "黑名单 0.否 | 1.是",
+                    "type": "integer"
+                },
+                "clerkMchId": {
+                    "description": "核销员入驻商id",
+                    "type": "integer"
+                },
+                "comments": {
+                    "description": "备注",
+                    "type": "string"
+                },
+                "consumeMoney": {
+                    "description": "用户累计消费金额",
+                    "type": "string"
+                },
+                "consumeRebateFyjifen": {
+                    "description": "消费返利未返积分",
+                    "type": "string"
+                },
+                "consumeRebateFyjine": {
+                    "description": "消费返利未返金额",
+                    "type": "string"
+                },
+                "consumeRebateTotalFyjifen": {
+                    "description": "消费返利总积分",
+                    "type": "string"
+                },
+                "consumeRebateTotalFyjine": {
+                    "description": "消费返利总金额",
+                    "type": "string"
+                },
+                "contactWay": {
+                    "description": "联系方式",
+                    "type": "string"
+                },
+                "deliveryMchId": {
+                    "type": "integer"
+                },
+                "deliveryOffice": {
+                    "description": "骑手是否在线（0、在线，1离线）",
+                    "type": "integer"
+                },
+                "fyjine": {
+                    "description": "待返总金额",
+                    "type": "string"
+                },
+                "integral": {
+                    "description": "用户当前积分",
+                    "type": "integer"
+                },
+                "isAdmin": {
+                    "type": "integer"
+                },
+                "isClerk": {
+                    "description": "是否是核销员 0--不是 1--是",
+                    "type": "integer"
+                },
+                "isDelete": {
+                    "type": "integer"
+                },
+                "isDelivery": {
+                    "description": "1是配送员0不是",
+                    "type": "integer"
+                },
+                "isDistributor": {
+                    "description": "是否是分销商 0--不是 1--是 2--申请中",
+                    "type": "integer"
+                },
+                "isFreePayment": {
+                    "description": "是否开启免密余额支付",
+                    "type": "integer"
+                },
+                "isGroupCentre": {
+                    "description": "是否团长身份 0--否，1--是",
+                    "type": "integer"
+                },
+                "isMchShipping": {
+                    "description": "是否是配送员 0否 1是",
+                    "type": "integer"
+                },
+                "isReal": {
+                    "description": "是否已实名注册 2审核中3审核未通过1审核通过",
+                    "type": "integer"
+                },
+                "isVgoods": {
+                    "description": "是否允许发布抖品：0=否，1=是",
+                    "type": "integer"
+                },
+                "level": {
+                    "description": "会员等级",
+                    "type": "integer"
+                },
+                "livePrice": {
+                    "description": "直播佣金",
+                    "type": "string"
+                },
+                "mchId": {
+                    "type": "integer"
+                },
+                "money": {
+                    "description": "余额",
+                    "type": "string"
+                },
+                "nickname": {
+                    "description": "昵称",
+                    "type": "string"
+                },
+                "parentId": {
+                    "description": "父级ID",
+                    "type": "integer"
+                },
+                "parentUserId": {
+                    "description": "可能成为上级的ID",
+                    "type": "integer"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "pickMch": {
+                    "description": "当前选择店铺id（关联mch表的自增id）",
+                    "type": "integer"
+                },
+                "platform": {
+                    "description": "小程序平台 0 =\u003e 微信, 1 =\u003e 支付宝",
+                    "type": "integer"
+                },
+                "price": {
+                    "description": "可提现佣金",
+                    "type": "string"
+                },
+                "provinceId": {
+                    "description": "来源省份",
+                    "type": "integer"
+                },
+                "realBackPic": {
+                    "description": "身份证反面照",
+                    "type": "string"
+                },
+                "realCode": {
+                    "description": "身份证号",
+                    "type": "string"
+                },
+                "realJustPic": {
+                    "description": "身份证正面照",
+                    "type": "string"
+                },
+                "realName": {
+                    "description": "真实姓名",
+                    "type": "string"
+                },
+                "sex": {
+                    "description": "性别0-未知,1男,2女",
+                    "type": "integer"
+                },
+                "shareCatId": {
+                    "description": "分销商分组id",
+                    "type": "integer"
+                },
+                "shopId": {
+                    "type": "integer"
+                },
+                "source": {
+                    "description": "1-小程序 2-公众号 3-app",
+                    "type": "integer"
+                },
+                "storeId": {
+                    "description": "商城id",
+                    "type": "integer"
+                },
+                "subsidies": {
+                    "description": "补贴金",
+                    "type": "string"
+                },
+                "subsidyPrice": {
+                    "description": "补贴金额",
+                    "type": "string"
+                },
+                "time": {
+                    "description": "成为分销商的时间",
+                    "type": "integer"
+                },
+                "totalIntegral": {
+                    "description": "用户总获得积分",
+                    "type": "integer"
+                },
+                "totalPrice": {
+                    "description": "累计佣金",
+                    "type": "string"
+                },
+                "tuanPrice": {
+                    "type": "string"
+                },
+                "type": {
+                    "description": "用户类型：0=管理员，1=普通用户3员工账号",
+                    "type": "integer"
+                },
+                "userLabel": {
+                    "description": "用户标签",
+                    "type": "integer"
+                },
+                "username": {
+                    "type": "string"
+                },
+                "we7Uid": {
+                    "description": "微擎账户id",
+                    "type": "integer"
+                },
+                "wechatOpenId": {
+                    "description": "微信openid",
+                    "type": "string"
+                },
+                "wechatPlatformOpenId": {
+                    "description": "微信公众号openid",
+                    "type": "string"
+                },
+                "wechatUnionId": {
+                    "description": "微信用户union id",
+                    "type": "string"
+                },
+                "yifan": {
+                    "description": "已返金额",
+                    "type": "string"
+                }
+            }
+        },
+        "types.CreateCyymallUserRespond": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "description": "return code",
+                    "type": "integer"
+                },
+                "data": {
+                    "description": "return data",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "description": "id",
+                            "type": "integer"
+                        }
+                    }
+                },
+                "msg": {
+                    "description": "return information description",
+                    "type": "string"
+                }
+            }
+        },
+        "types.CyymallUserObjDetail": {
+            "type": "object",
+            "properties": {
+                "accessToken": {
+                    "type": "string"
+                },
+                "addtime": {
+                    "type": "integer"
+                },
+                "appcid": {
+                    "type": "string"
+                },
+                "authKey": {
+                    "type": "string"
+                },
+                "avatarUrl": {
+                    "type": "string"
+                },
+                "balancePassword": {
+                    "description": "余额支付密码",
+                    "type": "string"
+                },
+                "binding": {
+                    "description": "授权手机号",
+                    "type": "string"
+                },
+                "birthDate": {
+                    "description": "出生日期",
+                    "type": "string"
+                },
+                "blacklist": {
+                    "description": "黑名单 0.否 | 1.是",
+                    "type": "integer"
+                },
+                "clerkMchId": {
+                    "description": "核销员入驻商id",
+                    "type": "integer"
+                },
+                "comments": {
+                    "description": "备注",
+                    "type": "string"
+                },
+                "consumeMoney": {
+                    "description": "用户累计消费金额",
+                    "type": "string"
+                },
+                "consumeRebateFyjifen": {
+                    "description": "消费返利未返积分",
+                    "type": "string"
+                },
+                "consumeRebateFyjine": {
+                    "description": "消费返利未返金额",
+                    "type": "string"
+                },
+                "consumeRebateTotalFyjifen": {
+                    "description": "消费返利总积分",
+                    "type": "string"
+                },
+                "consumeRebateTotalFyjine": {
+                    "description": "消费返利总金额",
+                    "type": "string"
+                },
+                "contactWay": {
+                    "description": "联系方式",
+                    "type": "string"
+                },
+                "deliveryMchId": {
+                    "type": "integer"
+                },
+                "deliveryOffice": {
+                    "description": "骑手是否在线（0、在线，1离线）",
+                    "type": "integer"
+                },
+                "fyjine": {
+                    "description": "待返总金额",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "convert to string id",
+                    "type": "string"
+                },
+                "integral": {
+                    "description": "用户当前积分",
+                    "type": "integer"
+                },
+                "isAdmin": {
+                    "type": "integer"
+                },
+                "isClerk": {
+                    "description": "是否是核销员 0--不是 1--是",
+                    "type": "integer"
+                },
+                "isDelete": {
+                    "type": "integer"
+                },
+                "isDelivery": {
+                    "description": "1是配送员0不是",
+                    "type": "integer"
+                },
+                "isDistributor": {
+                    "description": "是否是分销商 0--不是 1--是 2--申请中",
+                    "type": "integer"
+                },
+                "isFreePayment": {
+                    "description": "是否开启免密余额支付",
+                    "type": "integer"
+                },
+                "isGroupCentre": {
+                    "description": "是否团长身份 0--否，1--是",
+                    "type": "integer"
+                },
+                "isMchShipping": {
+                    "description": "是否是配送员 0否 1是",
+                    "type": "integer"
+                },
+                "isReal": {
+                    "description": "是否已实名注册 2审核中3审核未通过1审核通过",
+                    "type": "integer"
+                },
+                "isVgoods": {
+                    "description": "是否允许发布抖品：0=否，1=是",
+                    "type": "integer"
+                },
+                "level": {
+                    "description": "会员等级",
+                    "type": "integer"
+                },
+                "livePrice": {
+                    "description": "直播佣金",
+                    "type": "string"
+                },
+                "mchId": {
+                    "type": "integer"
+                },
+                "money": {
+                    "description": "余额",
+                    "type": "string"
+                },
+                "nickname": {
+                    "description": "昵称",
+                    "type": "string"
+                },
+                "parentId": {
+                    "description": "父级ID",
+                    "type": "integer"
+                },
+                "parentUserId": {
+                    "description": "可能成为上级的ID",
+                    "type": "integer"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "pickMch": {
+                    "description": "当前选择店铺id（关联mch表的自增id）",
+                    "type": "integer"
+                },
+                "platform": {
+                    "description": "小程序平台 0 =\u003e 微信, 1 =\u003e 支付宝",
+                    "type": "integer"
+                },
+                "price": {
+                    "description": "可提现佣金",
+                    "type": "string"
+                },
+                "provinceId": {
+                    "description": "来源省份",
+                    "type": "integer"
+                },
+                "realBackPic": {
+                    "description": "身份证反面照",
+                    "type": "string"
+                },
+                "realCode": {
+                    "description": "身份证号",
+                    "type": "string"
+                },
+                "realJustPic": {
+                    "description": "身份证正面照",
+                    "type": "string"
+                },
+                "realName": {
+                    "description": "真实姓名",
+                    "type": "string"
+                },
+                "sex": {
+                    "description": "性别0-未知,1男,2女",
+                    "type": "integer"
+                },
+                "shareCatId": {
+                    "description": "分销商分组id",
+                    "type": "integer"
+                },
+                "shopId": {
+                    "type": "integer"
+                },
+                "source": {
+                    "description": "1-小程序 2-公众号 3-app",
+                    "type": "integer"
+                },
+                "storeId": {
+                    "description": "商城id",
+                    "type": "integer"
+                },
+                "subsidies": {
+                    "description": "补贴金",
+                    "type": "string"
+                },
+                "subsidyPrice": {
+                    "description": "补贴金额",
+                    "type": "string"
+                },
+                "time": {
+                    "description": "成为分销商的时间",
+                    "type": "integer"
+                },
+                "totalIntegral": {
+                    "description": "用户总获得积分",
+                    "type": "integer"
+                },
+                "totalPrice": {
+                    "description": "累计佣金",
+                    "type": "string"
+                },
+                "tuanPrice": {
+                    "type": "string"
+                },
+                "type": {
+                    "description": "用户类型：0=管理员，1=普通用户3员工账号",
+                    "type": "integer"
+                },
+                "userLabel": {
+                    "description": "用户标签",
+                    "type": "integer"
+                },
+                "username": {
+                    "type": "string"
+                },
+                "we7Uid": {
+                    "description": "微擎账户id",
+                    "type": "integer"
+                },
+                "wechatOpenId": {
+                    "description": "微信openid",
+                    "type": "string"
+                },
+                "wechatPlatformOpenId": {
+                    "description": "微信公众号openid",
+                    "type": "string"
+                },
+                "wechatUnionId": {
+                    "description": "微信用户union id",
+                    "type": "string"
+                },
+                "yifan": {
+                    "description": "已返金额",
+                    "type": "string"
+                }
+            }
+        },
+        "types.DeleteCyymallUserByIDRespond": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "description": "return code",
+                    "type": "integer"
+                },
+                "data": {
+                    "description": "return data"
+                },
+                "msg": {
+                    "description": "return information description",
+                    "type": "string"
+                }
+            }
+        },
+        "types.DeleteCyymallUsersByIDsRequest": {
+            "type": "object",
+            "properties": {
+                "ids": {
+                    "description": "id list",
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "types.DeleteCyymallUsersByIDsRespond": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "description": "return code",
+                    "type": "integer"
+                },
+                "data": {
+                    "description": "return data"
+                },
+                "msg": {
+                    "description": "return information description",
+                    "type": "string"
+                }
+            }
+        },
+        "types.GetCyymallUserByConditionRespond": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "description": "return code",
+                    "type": "integer"
+                },
+                "data": {
+                    "description": "return data",
+                    "type": "object",
+                    "properties": {
+                        "cyymallUser": {
+                            "$ref": "#/definitions/types.CyymallUserObjDetail"
+                        }
+                    }
+                },
+                "msg": {
+                    "description": "return information description",
+                    "type": "string"
+                }
+            }
+        },
+        "types.GetCyymallUserByIDRespond": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "description": "return code",
+                    "type": "integer"
+                },
+                "data": {
+                    "description": "return data",
+                    "type": "object",
+                    "properties": {
+                        "cyymallUser": {
+                            "$ref": "#/definitions/types.CyymallUserObjDetail"
+                        }
+                    }
+                },
+                "msg": {
+                    "description": "return information description",
+                    "type": "string"
+                }
+            }
+        },
+        "types.ListCyymallUsersByIDsRequest": {
+            "type": "object",
+            "properties": {
+                "ids": {
+                    "description": "id list",
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "types.ListCyymallUsersByIDsRespond": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "description": "return code",
+                    "type": "integer"
+                },
+                "data": {
+                    "description": "return data",
+                    "type": "object",
+                    "properties": {
+                        "cyymallUsers": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/types.CyymallUserObjDetail"
+                            }
+                        }
+                    }
+                },
+                "msg": {
+                    "description": "return information description",
+                    "type": "string"
+                }
+            }
+        },
+        "types.ListCyymallUsersRespond": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "description": "return code",
+                    "type": "integer"
+                },
+                "data": {
+                    "description": "return data",
+                    "type": "object",
+                    "properties": {
+                        "cyymallUsers": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/types.CyymallUserObjDetail"
+                            }
+                        }
+                    }
+                },
+                "msg": {
+                    "description": "return information description",
+                    "type": "string"
+                }
+            }
+        },
+        "types.Params": {
+            "type": "object",
+            "properties": {
+                "columns": {
+                    "description": "query conditions",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/types.Column"
+                    }
+                },
+                "page": {
+                    "description": "page number, starting from page 0",
+                    "type": "integer"
+                },
+                "size": {
+                    "description": "lines per page",
+                    "type": "integer"
+                },
+                "sort": {
+                    "description": "sorted fields, multi-column sorting separated by commas",
+                    "type": "string"
+                }
+            }
+        },
+        "types.UpdateCyymallUserByIDRequest": {
+            "type": "object",
+            "properties": {
+                "accessToken": {
+                    "type": "string"
+                },
+                "addtime": {
+                    "type": "integer"
+                },
+                "appcid": {
+                    "type": "string"
+                },
+                "authKey": {
+                    "type": "string"
+                },
+                "avatarUrl": {
+                    "type": "string"
+                },
+                "balancePassword": {
+                    "description": "余额支付密码",
+                    "type": "string"
+                },
+                "binding": {
+                    "description": "授权手机号",
+                    "type": "string"
+                },
+                "birthDate": {
+                    "description": "出生日期",
+                    "type": "string"
+                },
+                "blacklist": {
+                    "description": "黑名单 0.否 | 1.是",
+                    "type": "integer"
+                },
+                "clerkMchId": {
+                    "description": "核销员入驻商id",
+                    "type": "integer"
+                },
+                "comments": {
+                    "description": "备注",
+                    "type": "string"
+                },
+                "consumeMoney": {
+                    "description": "用户累计消费金额",
+                    "type": "string"
+                },
+                "consumeRebateFyjifen": {
+                    "description": "消费返利未返积分",
+                    "type": "string"
+                },
+                "consumeRebateFyjine": {
+                    "description": "消费返利未返金额",
+                    "type": "string"
+                },
+                "consumeRebateTotalFyjifen": {
+                    "description": "消费返利总积分",
+                    "type": "string"
+                },
+                "consumeRebateTotalFyjine": {
+                    "description": "消费返利总金额",
+                    "type": "string"
+                },
+                "contactWay": {
+                    "description": "联系方式",
+                    "type": "string"
+                },
+                "deliveryMchId": {
+                    "type": "integer"
+                },
+                "deliveryOffice": {
+                    "description": "骑手是否在线（0、在线，1离线）",
+                    "type": "integer"
+                },
+                "fyjine": {
+                    "description": "待返总金额",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "uint64 id",
+                    "type": "integer"
+                },
+                "integral": {
+                    "description": "用户当前积分",
+                    "type": "integer"
+                },
+                "isAdmin": {
+                    "type": "integer"
+                },
+                "isClerk": {
+                    "description": "是否是核销员 0--不是 1--是",
+                    "type": "integer"
+                },
+                "isDelete": {
+                    "type": "integer"
+                },
+                "isDelivery": {
+                    "description": "1是配送员0不是",
+                    "type": "integer"
+                },
+                "isDistributor": {
+                    "description": "是否是分销商 0--不是 1--是 2--申请中",
+                    "type": "integer"
+                },
+                "isFreePayment": {
+                    "description": "是否开启免密余额支付",
+                    "type": "integer"
+                },
+                "isGroupCentre": {
+                    "description": "是否团长身份 0--否，1--是",
+                    "type": "integer"
+                },
+                "isMchShipping": {
+                    "description": "是否是配送员 0否 1是",
+                    "type": "integer"
+                },
+                "isReal": {
+                    "description": "是否已实名注册 2审核中3审核未通过1审核通过",
+                    "type": "integer"
+                },
+                "isVgoods": {
+                    "description": "是否允许发布抖品：0=否，1=是",
+                    "type": "integer"
+                },
+                "level": {
+                    "description": "会员等级",
+                    "type": "integer"
+                },
+                "livePrice": {
+                    "description": "直播佣金",
+                    "type": "string"
+                },
+                "mchId": {
+                    "type": "integer"
+                },
+                "money": {
+                    "description": "余额",
+                    "type": "string"
+                },
+                "nickname": {
+                    "description": "昵称",
+                    "type": "string"
+                },
+                "parentId": {
+                    "description": "父级ID",
+                    "type": "integer"
+                },
+                "parentUserId": {
+                    "description": "可能成为上级的ID",
+                    "type": "integer"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "pickMch": {
+                    "description": "当前选择店铺id（关联mch表的自增id）",
+                    "type": "integer"
+                },
+                "platform": {
+                    "description": "小程序平台 0 =\u003e 微信, 1 =\u003e 支付宝",
+                    "type": "integer"
+                },
+                "price": {
+                    "description": "可提现佣金",
+                    "type": "string"
+                },
+                "provinceId": {
+                    "description": "来源省份",
+                    "type": "integer"
+                },
+                "realBackPic": {
+                    "description": "身份证反面照",
+                    "type": "string"
+                },
+                "realCode": {
+                    "description": "身份证号",
+                    "type": "string"
+                },
+                "realJustPic": {
+                    "description": "身份证正面照",
+                    "type": "string"
+                },
+                "realName": {
+                    "description": "真实姓名",
+                    "type": "string"
+                },
+                "sex": {
+                    "description": "性别0-未知,1男,2女",
+                    "type": "integer"
+                },
+                "shareCatId": {
+                    "description": "分销商分组id",
+                    "type": "integer"
+                },
+                "shopId": {
+                    "type": "integer"
+                },
+                "source": {
+                    "description": "1-小程序 2-公众号 3-app",
+                    "type": "integer"
+                },
+                "storeId": {
+                    "description": "商城id",
+                    "type": "integer"
+                },
+                "subsidies": {
+                    "description": "补贴金",
+                    "type": "string"
+                },
+                "subsidyPrice": {
+                    "description": "补贴金额",
+                    "type": "string"
+                },
+                "time": {
+                    "description": "成为分销商的时间",
+                    "type": "integer"
+                },
+                "totalIntegral": {
+                    "description": "用户总获得积分",
+                    "type": "integer"
+                },
+                "totalPrice": {
+                    "description": "累计佣金",
+                    "type": "string"
+                },
+                "tuanPrice": {
+                    "type": "string"
+                },
+                "type": {
+                    "description": "用户类型：0=管理员，1=普通用户3员工账号",
+                    "type": "integer"
+                },
+                "userLabel": {
+                    "description": "用户标签",
+                    "type": "integer"
+                },
+                "username": {
+                    "type": "string"
+                },
+                "we7Uid": {
+                    "description": "微擎账户id",
+                    "type": "integer"
+                },
+                "wechatOpenId": {
+                    "description": "微信openid",
+                    "type": "string"
+                },
+                "wechatPlatformOpenId": {
+                    "description": "微信公众号openid",
+                    "type": "string"
+                },
+                "wechatUnionId": {
+                    "description": "微信用户union id",
+                    "type": "string"
+                },
+                "yifan": {
+                    "description": "已返金额",
+                    "type": "string"
+                }
+            }
+        },
+        "types.UpdateCyymallUserByIDRespond": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "description": "return code",
+                    "type": "integer"
+                },
+                "data": {
+                    "description": "return data"
+                },
+                "msg": {
+                    "description": "return information description",
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "BearerAuth": {
+            "description": "Type Bearer your-jwt-token to Value",
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    }
+}
