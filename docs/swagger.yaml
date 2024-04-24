@@ -961,7 +961,7 @@ schemes:
 - https
 securityDefinitions:
   BearerAuth:
-    description: Type Bearer your-jwt-token to Value
+    description: Type Bearer your-jwt-token to Value\
     in: header
     name: Authorization
     type: apiKey

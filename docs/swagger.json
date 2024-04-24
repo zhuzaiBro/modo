@@ -1356,7 +1356,7 @@
     },
     "securityDefinitions": {
         "BearerAuth": {
-            "description": "Type Bearer your-jwt-token to Value",
+            "description": "Type Bearer your-jwt-token to Value\\",
             "type": "apiKey",
             "name": "Authorization",
             "in": "header"
